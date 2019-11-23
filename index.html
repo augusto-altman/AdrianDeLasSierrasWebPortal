@@ -11,9 +11,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="https://use.fontawesome.com/251744acdb.js"></script>
+    <script>
+      function login() {
+        var user = document.getElementById('loginUser').value;
+        var pass = document.getElementById('loginPass').value;
+        if(user=="adrian" && pass=="adrian"){
+          localStorage.setItem('loginDate', new Date().getTime());
+          pageRefresh();
+        } else {
+          // TODO
+        }
+      }
+      function pageRefresh() {
+        var loginDate = localStorage.getItem('loginDate');
+        var coverElem = document.querySelector("#loading-cover");
+        var loginScreenElem = document.querySelector("#loginScreen");
+        var footerElem = document.querySelector("#footer");
+        var containerElem = document.querySelector("#container");
+        if(!loginDate) {
+          loginScreenElem.style.display = "flex";
+          footerElem.style.display = "none";
+          containerElem.style.display = "none";
+        } else {
+          loginScreenElem.style.display = "none";
+          footerElem.style.display = "block";
+          containerElem.style.display = "flex";
+        }
+        coverElem.style.display = "none";
+      }
+      window.addEventListener('load', (event) => {
+        pageRefresh();
+      });
+    </script>
   </head>
 
   <body>
+    <div id="loading-cover" style="height: 100vh; width: 100vw; position: fixed; background: white; top: 0; left: 0; z-index: 99;"></div>
+    <div id="loginScreen">
+        <img src="imgs/logoAdrian-01.png" class="logoLogin" />
+        <h1 class="empresa">EMPRESA DE VIAJES Y TURISMO</h1>
+        <h5 class="evtLogin">EVT Leg. 11909</h5>
+        <p>Este sitio web es para uso exclusivo de agentes de viaje. Por favor solicite su usuario y contrase&ntilde;a a Adri&aacute;n:<br />vcpadrian@gmail.com o via WhatsApp al 03541-15570181</p>
+        <form class="loginForm">
+            <input type="text" id="loginUser" placeholder="Usuario"><br>
+            <input type="password" id="loginPass" placeholder="Contrase&ntilde;a"><br>
+            <input type="button" value="Entrar" onclick="login()">
+        </form>
+    </div>
     <div id="container">
       <div id="firstDiv">
         <img src="imgs/logoAdrian-01.png" class="logoImg" />

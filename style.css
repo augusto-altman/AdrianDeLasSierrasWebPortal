@@ -15,15 +15,81 @@ a{
 	text-decoration: none;
 }
 
+#loginScreen{
+	background-image: url("imgs/vcp.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	/* display: flex; */
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	display: none;
+}
+
+.logoLogin{
+	max-width:200px;
+	width: auto;
+	height: auto;
+	margin-top: 2rem;
+}
+
+.empresa{
+	font-size: 2rem;
+	color: white;
+}
+
+.evtLogin{
+	color: white;
+	margin: 0px;
+	padding: 0px;
+}
+
+#loginScreen p{
+	font-family: 'Fira Sans', sans-serif;
+	color: white;
+	margin-top: 2rem;
+	line-height: 1.5rem;
+}
+
+.loginForm{
+	color: white;
+	text-align: center;
+	margin: 1rem 0rem;
+}
+
+input[type=text], input[type=password]{
+	border: none;
+	width: 200px;
+	height: 35px;
+	border-radius: 50px;
+	margin-bottom: 1rem;
+	padding: 1rem;
+}
+
+input[type=submit], input[type=button]{
+	border: 2px solid #E2B33D;
+	background-color: #E2B33D;
+	color: white;
+	padding: 0.5rem 4rem;
+	border-radius: 50px;
+	cursor: pointer;
+	width: 200px;
+	font-size: 0.8rem;
+}
+
 #container{
 	max-width: 1300px;
 	width: 100%;
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
+	display: none;
 }
 
 #firstDiv{
@@ -60,15 +126,11 @@ a{
 
 .button{
 	border: 2px solid #E2B33D;
-	color: #E2B33D;
+	background-color: #E2B33D;
+	color: white;
 	padding: 0.5rem 4rem;
 	border-radius: 50px;
 	cursor: pointer;
-}
-
-.button:hover { 
-    background-color: #E2B33D;
-	color: white;
 }
 
 #mobileButtons{
@@ -153,6 +215,7 @@ a{
 	padding-bottom: 1rem;
 	font-size: 0.8rem;
 	text-align: center;
+	display: none;
 }
 
 .contact{
