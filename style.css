@@ -15,6 +15,17 @@ a{
 	text-decoration: none;
 }
 
+#error{
+	color: red;
+	background-color: white;
+	margin-top: 1rem;
+	font-size: 0.8rem;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	opacity: 0.6;
+	display: none;
+}
+
 #loginScreen{
 	background-image: url("imgs/vcp.png");
 	background-repeat: no-repeat;

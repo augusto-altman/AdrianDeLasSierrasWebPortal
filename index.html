@@ -15,11 +15,13 @@
       function login() {
         var user = document.getElementById('loginUser').value;
         var pass = document.getElementById('loginPass').value;
+        var loginErrorElem = document.querySelector("#error");
         if(user=="adrian" && pass=="adrian"){
+          loginErrorElem.style.display = "none";
           localStorage.setItem('loginDate', new Date().getTime());
           pageRefresh();
         } else {
-          // TODO
+          loginErrorElem.style.display = "block";
         }
       }
       function pageRefresh() {
@@ -57,6 +59,9 @@
             <input type="password" id="loginPass" placeholder="Contrase&ntilde;a"><br>
             <input type="button" value="Entrar" onclick="login()">
         </form>
+        <div id="error">
+            El ususario y/o contrase&ntilde;a son incorrectos
+        </div>
     </div>
     <div id="container">
       <div id="firstDiv">
