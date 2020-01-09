@@ -1,7 +1,8 @@
 <html>
 	
 <!-- Mirrored from www.gerardo.tur.ar/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Jun 2019 19:04:49 GMT -->
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Gerardo de los Cerros EVT</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,800" rel="stylesheet">
@@ -9,11 +10,68 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<script src="../use.fontawesome.com/251744acdb.js"></script>
+        <script src="../use.fontawesome.com/251744acdb.js"></script>
+        <script>
+            function login() {
+                var user = document.getElementById('loginUser').value;
+                var pass = document.getElementById('loginPass').value;
+                var loginErrorElem = document.querySelector("#error");
+                if(user=="gerardo" && pass=="gerardo"){
+                    loginErrorElem.style.display = "none";
+                    localStorage.setItem('loginDate_gerardo', new Date().getTime());
+                    pageRefresh();
+                } else {
+                    loginErrorElem.style.display = "block";
+                }
+            }
+            function pageRefresh() {
+                var loginDate = localStorage.getItem('loginDate_gerardo');
+                var coverElem = document.querySelector("#loading-cover");
+                var loginScreenElem = document.querySelector("#loginScreen");
+                var footerElem = document.querySelector("#footer");
+                var containerElem = document.querySelector("#container");
+                if(!loginDate) {
+                    loginScreenElem.style.display = "flex";
+                    footerElem.style.display = "none";
+                    containerElem.style.display = "none";
+                } else {
+                    loginScreenElem.style.display = "none";
+                    footerElem.style.display = "block";
+                    containerElem.style.display = "block";
+                }
+                coverElem.style.display = "none";
+            }
+            window.addEventListener('load', (event) => {
+                pageRefresh();
+            });
+        </script>
 	</head>
 	<body>
+        <div id="loading-cover" style="height: 100vh; width: 100vw; position: fixed; background: white; top: 0; left: 0; z-index: 99;"></div>
+        <div id="loginScreen">
+            <img src="imgs/logoGerardo-01.png" class="logoLogin" />
+            <h1 class="empresa">EMPRESA DE VIAJES Y TURISMO</h1>
+            <h5 class="evtLogin">EVT Leg. 17038</h5>
+            <p>Este sitio web es para uso exclusivo de Agentes de Viajes. Por favor solic&iacute;tenos su usuario y contrase&ntilde;a a:<br />gerardo@gerardo.tur.ar o via WhatsApp al 0294-4427008</p>
+            <form class="loginForm">
+                <input type="text" id="loginUser" placeholder="Usuario"><br>
+                <input type="password" id="loginPass" placeholder="Contrase&ntilde;a"><br>
+                <input type="button" value="Entrar" onclick="login()">
+            </form>
+            <div id="error">
+                El ususario y/o contrase&ntilde;a son incorrectos
+            </div>
+        </div>
 		<div id="container">
 			<div id="firstDiv">
+                <a href="http://turisticos.com.ar" target="_blank">
+                    <div class="turisticos">
+                        <p>Patrocinador de</p>
+                        <img src="imgs/logoTuristicos.svg" />
+                        <p>Conectando Agencias y Operadores tur&iacute;sticos con Productores de servicios en todo el pa&iacute;s</p>
+                        <p style="font-weight: bold;">Click aquí para visitar</p>
+                    </div>
+                </a>
 				<img src="imgs/logoGerardo-01.png" class="logoImg" />
 				<h1 class="evt">EMPRESA DE VIAJES Y TURISMO</h1>
 				<h5>EVT Leg. 17038</h5>
