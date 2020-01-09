@@ -101,7 +101,7 @@ input[type=submit], input[type=button]{
 #secondDiv span{
 	width: 30%;
 	background-color: white;
-	margin-top: -5%;
+	margin-top: -3%;
 }
 
 .column{
@@ -118,6 +118,10 @@ input[type=submit], input[type=button]{
 .column h1{
 	color: #747B20;
 	margin-top: 0.5rem;
+}
+
+.column .columnTitle {
+	text-align: center
 }
 
 .column h4{
@@ -307,8 +311,8 @@ input[type=submit]{
 		background-size: 100% 100vh;
 	}
 
-	#firstDiv{
-		height: 100vh;
+	.turisticos{
+		display: none;
 	}
 	
 	.logoImg{
